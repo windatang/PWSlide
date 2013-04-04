@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="zn">
+    <head>
+        <meta charset="utf-8" />
+        <title>slide</title>
+        <meta name="author" content="Winda Tang" />
+        <script type="text/javascript" src="page/constant.js"></script>
+        <script type="text/javascript" src="page/view.js"></script>
+        <script type="text/javascript" src="page/slide.js"></script>
+        <script type="text/javascript" src="page/template.js"></script>
+        <script type="text/javascript" src="page/amination_step.js"></script>
+    </head>
+<style type="text/css">
+body{width: 100%; background-color:#bababa; background-image: url(page/bgg.png); background-repeat: repeat; margin:0;}
+.index_cont{background:url(page/bggg.jpg) 50% 80px no-repeat; width: 100%; max-width: 1640px;min-width:1280px; height: 1200px; margin:0 auto; }    
+#form{width:1280px; position:relative}
+#screen{border:2px solid #666666;height:748px;width:1024px; box-shadow: 2px 2px 2px #000; float: left; position:relative;}
+
+.label, label{display:inline-block; color:#eee; padding:1px; font-size:12px;}
+.view{
+    position: absolute;
+}
+#form{ margin: 0 auto;  min-width:1028px;}
+#fram{border:0}
+header{ height: 96px; width:100%; max-width: 1640px;min-width:1280px; background: url(page/hd.png) repeat-x;}
+    header .cont{height: 85px; width: 100%;/*background:  -webkit-radial-gradient(30% 70%, circle closest-corner, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 99%,rgba(0,0,0,0.3) 100%);  Chrome10+,Safari5.1+ */}
+    header:after{
+        display: block; width:100%; max-width: 1680px;background:url(page/hd_bo.png) 50% 0px no-repeat; height: 27px; content:'';
+    }
+#nav{/** border:3px solid #912425;**/
+    height: 80px; width: 1260px;  background: rgba(0,0,0,0.4); overflow: scroll; padding:10px;
+}
+#nav .main{ width:9999px;} 
+#nav .nav_chapter{float: left; height: 80px; width: 110px; background:#912425; margin-right:10px; position: relative; }
+#nav .nav_chapter a{  height: 80px; width: 110px; }
+#nav .nav_chapter #add_nav_chapter{background: url(page/addchat.png); display: block;  height: 80px; width: 110px;}
+#nav #nav_add{margin-right:0px;}
+
+
+.wrap{height:748px;width:1024px;overflow:hidden;position:relative;}
+ul.keynote>li .main{ width: 100%; height:-webkit-calc(100% - 105px); position: relative; }
+ul.multilevel>li{ height: 748px; width: 1024px; }
+.mod_tab a,.btn{z-index:2;color:white;border:none;font-size:14px;text-align:center;color:#666;text-decoration:none;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;height:35px;line-height:35px;width:120px;/**box-shadow:0px 0px 0 rgb(207,207,207),1px 1px 0 rgb(181,181,181),2px 2px 0 rgb(154,154,154),3px 3px 0 rgb(127,127,127),4px 4px 3px rgba(0,0,0,0.35),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);**/}
+
+ul.keynote{height:748px;margin:0;padding:0;width:1024px;list-style:none; background:rgba(0,0,0,0.7)}
+ul.keynote>li{position:relative;height:748px;width:1024px;margin:0;padding:0;float:left;list-style:none;box-shadow:0 0 2px 2px rgba(0,0,0,0.2);}
+
+#screen,#whole{margin-top:20px;}
+.closea{position: absolute; z-index: 999; right: 0; top:0; background: url(page/closea.png); height:55px; width: 55px;}
+#close_a{position: absolute; z-index: 999; right: 0; top:0; height: 25px; width: 25px;}
+#whole{float: left; margin-top:30px; width:226px; margin-left:15px; background:rgba(0,0,0,0.7); box-shadow:0 0 10px 10px rgba(0, 0, 0, 0.7); } 
+.make_btn{background:url(page/btn.jpg) repeat-x; height:46px;font-size:20px; font-weight:bold;  line-height:46px; padding:0 10px; border-radius: 3px; color:#ddd; text-align: center; display:block; text-decoration:none;text-shadow: 0 2px 2px rgba(0,0,0,0.2); box-shadow:0 0 2px 2px rgba(0,0,0,0.2);  }
+#finish{position: absolute; padding:0 20px; right:0; top:-74px;}
+#h2,h3{text-align: left; color:#912425; margin:0; padding:0 0px; font-size:22px; height:30px; line-height: 30px;}
+#h2{ border-left:#fff;}
+hr{border-color:#296e9d;}
+h3{height:30px; line-height: 30px; font-size:16px;} 
+#whole input,#whole textarea{border:none; box-shadow:inset 0 0px 10px rgba(0,0,0,0.6); background:rgba(255,255,255,0.2); border-radius: 3px; height:24px; padding:2px 6px;  color:#eee }
+#whole textarea{vertical-align:middle; height:50px;}
+#whole .make_btn{ height:26px; line-height: 26px; font-size:12px; width:50px; display:inline-block;}
+#whole input[type="number"]{width:55px;}
+#mast_type{display: block;} 
+#nav .classify{position:absolute;  overflow-y: scroll;  height:80px; right:0; top:0;width:45px; }
+#nav .classify .main{height:auto; width: auto; overflow: visible;}
+#nav .nav_classify{background:#eee; height:20px;width:28px;  margin-bottom:2px;}
+#nav .classify_add{background:url(page/classify.jpg) no-repeat;}
+#nav .nav_chapter .nav_a{ display: block; height: 80px; width:65px}
+#nav .nav_classify{ position: relative;}
+#nav .nav_classify .nav_a{ display: block; height:100%; width:100%; position: absolute; right: 0; top:0;}
+#nav .nav_chapter a.delete{display: block; z-index: 999; position: absolute; top:0; left:0; height: 20px; width: 20px; background: url(page/delete.png) }
+#nav .nav_classify a.delete{ height: 15px; width: 15px; background: url(page/delete1.png) }
+#keynote li{position: relative;}
+.text{position:absolute;}
+.mod_tab a,.btn{
+    z-index:2;border:none;font-size:14px;text-align:center;text-decoration:none;}
+/**.btn:active{color:#666;box-shadow:0px 0px 0 rgb(199,199,199),-1px -1px 0 rgb(163,163,163),-2px -2px 0 rgb(128,128,128),-3px -3px 2px rgba(0,0,0,0.35),-3px -3px 1px rgba(0,0,0,0.5),0px 0px 2px rgba(0,0,0,.2);}
+.btn:hover{background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ddd),color-stop(100%,#eee))} **/
+/** 弹窗 **/
+.window{display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-pack:center;-webkit-box-align:center;display:-moz-box;-moz-box-orient:horizontal;-moz-box-pack:center;-moz-box-align:center;display:-o-box;-o-box-orient:horizontal;-o-box-pack:center;-o-box-align:center;display:-ms-box;-ms-box-orient:horizontal;-ms-box-pack:center;-ms-box-align:center;display:box;box-orient:horizontal;box-pack:center;box-align:center;height:748px;width:1024px;position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.6);opacity:0; -webkit-transition: opacity .3s ease-out;visibility:hidden; z-index: 9999999}
+.window .box{background:#fff;padding:20px;border:5px solid #666;position:relative;}
+.window .box .main{max-height: 600px;max-width: 900px;}
+.window .box .close{position:absolute;top: -20px;right: -20px;height: 33px;width: 33px;display:block;background:url(page/close.png) no-repeat;}
+/** 动画 **/
+.auto_active,.active{
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-delay: 0;
+    -webkit-animation-timing-function: linear;
+    overflow: hidden;
+    position: absolute;
+}
+.btn_win{position: absolute;}
+/** 柱状图 **/
+.mod_axle .text{ position: relative;}
+.mod_axle .up,.mod_axle .down,.mod_axle .right,.mod_axle .left,.mod_axle .text span{position: absolute; background-position: 0 0; }
+.active{background-position:0;}
+.btn_layer{ position: relative; display:block; overflow: hidden;}
+.mod_tab a.end {
+    background: #EAEAEA;
+    box-shadow: none;
+    z-index: 333;
+    border: 2px solid #BACE7F;
+}
+.end, .mod_tab .layer.end,.mod_axle .mod_layer div.end{
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+#review{
+    height:40px;
+    font-size: 24px;
+    line-height:40px;
+    float: left;
+    width: 120px;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+.hidden{display:none; visibility: none}
+#wind_save,#wind_play{width: 100%; height: 100%;}
+#zip{ position: absolute;
+padding: 0 20px;
+right: 100px;
+top: -74px;}
+
+
+
+
+.view{ border:3px gray dashed; overflow: visible; color:#3f3f3f;}
+.view .operate { height:100%; width: 100%; position: absolute; overflow: visible;}
+.view  .ele{position: absolute; height: 28px; width: 28px;
+background-color:rgb(41,41,41); background-image: url(page/operate.png); background-repeat: no-repeat;}
+.view  .close{right: 2px; bottom: 2px; background-position:0 -29px; z-index: 999;}
+.view  .confirm{right: 32px; bottom: 2px; background-position:0 -58px; z-index: 999; }
+.view  .drage{top:-38px; left: -38px; height: 36px; width: 36px; background-position:-29px -36px; cursor: move}
+.view  .size{right:-38px; bottom: -38px; height: 36px; width: 36px;  background-position:-29px 0; cursor: se-resize }
+.view  .background{top:-30px; left: 1px; background-position:0 -203px; }
+.view  .operateText{top:-30px; right:-3px; width: 80%; background: none;}
+.view  .operateText .ele{float: right; margin-left: 2px; position: relative;}
+.view  .plus{ background-position:0px -88px ; }
+.view  .minus{ background-position: 0px -117px; }
+.view  .lineheight{ background-position:0px 0px; }
+.view  .color{ background-position:0px -145px; z-index: 999; }
+.view  .weight{ background-position:0px -174px ; }
+.view .text{display: block; height: 100%; width: 100%;}
+.view .centre{background-position:0px -257px;}
+.view .fright{background-position:0px -280px;}
+.view .fleft{background-position:0px -233px;}
+.view .bac_color{top: -30px;
+left: 30px; border: 0;
+padding: 0;
+background-image: none;}
+.view textarea{ background: #FFF; position: absolute; z-index:999;}
+.view .cur {
+    cursor:pointer;
+    display:block;
+    z-index: 999;
+    color:#912425;
+    height:16px;
+    line-height:16px;
+    padding:0px 0px 0px 2px;
+    font-size: 12px;
+}
+.view .bm {
+    border: 1px #292929 solid;
+    width:28px;
+    position: absolute;
+    margin-left:10px;
+    background: #292929;
+    right: 60px;
+}
+.view #fontc{
+    width:26px;
+    position: absolute;
+    margin-left:10px;
+    background: #292929;
+    right: 90px;
+    border:0;
+}
+.view #input_f{
+    position: absolute;
+    top:0;left:0; opacity: 0; height: 28px; width: 28px; margin:0; padding: 0;
+}
+
+</style>
+<style type="text/css" id="charpter_style">
+</style>
+    <body>
+        <div class="index_cont">
+            <header>
+                <div class="cont"></div>
+            </header>
+        <div id="form">
+            <a class="make_btn"  href="slide.zip"  id="zip">下 载</a>
+            <a class="make_btn"  href="javascript:void(0);"  id="finish">完 成</a>
+            <nav id = "nav" class = "">
+              <div class="main">
+                <div class="nav_chapter" id="nav_chapter_1" data-classify = "0" style="background:rgba(179, 96, 96, 1)">
+                    <a class="nav_a" href="javascript:void(0);"></a>
+                    <textarea class="chapter_html inHtml" style="height:0; width:0; display: none">
+                    </textarea>
+                    <textarea class="chapter_css inCss" style="height:0; width:0; display: none">
+                    </textarea>
+                    <div class="classify">
+                        <div class="main">
+                            <div class="nav_classify classify_add" id="c1_addclassfy"  ><a href="#"></a></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="nav_add" class="nav_chapter"><a id="add_nav_chapter" href="#"></a></div>
+             </div>
+            </nav>
+
+            <div id="screen">
+                <div id="fram" class="wrap"  height="748" width="1024" >
+                    <ul id="keynote" class="keynote">
+                    </ul>
+                </div>
+                <div class="closea"><a id="close_a" href="javascript:void(0);"  id="text_add"></a></div>
+                <!--div class="view" id="text_view">
+
+                </div>
+                <div class="view" id="win_btn_view"></div>
+                <div class="view" id="animation_btn_view"></div>
+                <div class="view" id="animation_view"></div-->
+<!--div class="view" style="height: 200px; width: 50%; top: 0px; left: 0px; ">
+    <a href="javascript:void(0);" class="ele close"></a>
+    <a href="javascript:void(0);" class="ele confirm"></a>
+    <a href="javascript:void(0);" class="ele drage"></a>
+    <a href="javascript:void(0);" class="ele size"></a>
+    <a href="javascript:void(0);" class="ele background"></a>
+    
+<div class="ele operateText">
+    <a href="javascript:void(0);" class="ele plus"></a>
+    <a href="javascript:void(0);" class="ele minus"></a>
+    <a href="javascript:void(0);" class="ele lineheight"></a>
+    <a href="javascript:void(0);" class="ele color"></a>
+    <a href="javascript:void(0);" class="ele weight"></a>
+    </div></div-->
+                <textarea id="windtext" style="height:0; width:0; display: none">
+                </textarea>
+            </div>
+            <div id="whole">
+                 <h2 id="h2"> 添加功能列表 </h2>
+                 <hr/>
+                 <div class="eleadd" id="chapter_bac">
+                    <input type="text" id="input_bac" placeholder="(#加颜色)" />
+                    <a class="make_btn"  href="javascript:void(0);"  id="add_libac">背景颜色</a>
+                 </div>
+                 <hr/>
+                 <div class="eleadd" id="text_input">
+                    <a class="make_btn"  href="javascript:void(0);"  id="text_add">添加文本</a>
+                 </div>
+                  <hr/>
+                 <div class="eleadd" id="win_btn_input">
+                    <h3>添加弹窗按钮</h3>
+                    <label>内容：<input class="kan content" id="content"  type="text" placeholder="图片名称"/></label>
+                    <a class="make_btn"  href="javascript:void(0);"  id="win_add">添加按钮</a>
+                 </div>
+                 <hr/>
+                 <div id="auto_animation">
+                    <h3>添加动画效果</h3>
+                    <select id="sele_add">
+                      <option value="0">自启动动画</option>
+                      <option value="1">按钮启动动画</option>
+                    </select>
+                    <div id="animation_btn_input" class="hidden">
+                        <label>高：<input class="kan height" type="number" placeholder="高度" min="1" max="748">px;</label>
+                        <label>宽：<input class="kan width" type="number"  placeholder="宽度" min="1" max="1024">px;</label>
+                        <label> X ：<input class="kan left" type="number"  placeholder="X轴" min="0" max="1024">px;</label>
+                        <label> Y ：<input class="kan top" type="number"  placeholder="Y轴" min="1" max="1024">px;</label>
+                        <label>背景：<input class="kan background" id="mast_bac1"  type="text" placeholder="按钮背景(#加颜色)" /></label>
+                        <a class="make_btn"  href="javascript:void(0);"  id="animation_btn_add">添加按钮</a>
+                    </div>
+                    <div id="animation_input">
+                        <label>高：<input class="kan height" type="number" placeholder="高度" min="1" max="748">px;</label>
+                        <label>宽：<input class="kan width" type="number"  placeholder="宽度" min="1" max="1024">px;</label>
+                        <label> X ：<input class="kan left" type="number"  placeholder="X轴" min="0" max="1024">px;</label>
+                        <label> Y ：<input class="kan top" type="number"  placeholder="Y轴" min="1" max="1024">px;</label>
+                        <label>step：<input class="kan" id="step" type="number" placeholder="第几步"/></label>
+                        <label>sum：<input class="kan" id="sum" type="number" placeholder="总步骤"/></label>
+                        <label>背景：<input class="kan background" id="mast_bac" type="text" placeholder="动画的背景(#加颜色)" /></label>
+                        <div class='label anim' id="mast_type" >
+                            类型：
+                            <select id="direct">
+                              <option value="up">向上</option>
+                              <option value="down">向下</option>
+                              <option value="left">向左</option>
+                              <option value="right">向右</option>
+                              <option value="flash">渐显</option>
+                            </select>
+                        </div>
+                        <div id = "auto_animation_mod" class="label"><a class="make_btn"  href="javascript:void(0);"  id="animation_add1">确 &nbsp; &nbsp;定</a></div>
+                        <div id = "btn_animation_mod" class="hidden" class="label">
+                            <a class="make_btn"  href="javascript:void(0);"  id="animation_add2">确 &nbsp; &nbsp;定</a>
+                            <a class="make_btn"  href="javascript:void(0);"  id="over">结束</a>
+                        </div>
+                   </div>
+                  </div>
+                 <hr/>
+            </div>  
+            <a class="make_btn hidden" id="review">修 &nbsp; &nbsp;改 </a>
+        </div>
+        <iframe id="fram" src="index/index.html" height="0" width="0" ></iframe>
+    </div>
+        <textarea height="768" width="1024" id="type_code" style="height:768px; width:1024px; display: none">
+                    
+        </textarea>
+        <textarea id="jstext_addNav" type="text/javascript" style="display: none">(function(){
+            var navList =[]; 
+            var key = keynote.init({
+                ul:'keynote',
+                liClass : 'keynote_li',
+                callBack : function(param) {
+                    calldo(param);
+
+                    /*** 导航切换 *****/
+                    if(navList[0] == null){
+                        navList[0] = {ul:'nav'};
+                        navList[0] =  keynote.nav.init(param,navList,0)
+                    }
+                    navList[0].currentLi = param.currentLi;
+                    keynote.nav.keyLiHover(param,navList[0]);
+
+                    /*** 导航切换 *****/
+                    if(navList[1] == null){
+                        navList[1] = {ul:'map'};
+                        navList[1]  =  keynote.nav.init(param,navList,1);
+                    }
+                    navList[1].currentLi = param.currentLi;
+                    keynote.nav.keyLiHover(param,navList[1]);
+            
+
+                    var wrapParam =param;
+
+                    var alist = param.li[param.currentLi].id.replace('li','');  
+                    alist = document.getElementById('multilevel'+ alist);
+                    if(alist){
+                        var multilevel =  keynote.init({
+                            ul:alist.id,
+                            liClass : 'multilevel_li',
+                            multilevel: 1,
+                            elevator: 0,
+                            liheight: 748,
+                            callBack : function(param) {
+                                calldo(param);
+                                var wrapUl = navList[1].li[wrapParam.currentLi];
+                                var a =wrapUl.getElementsByTagName('a')
+                                for (var i = a.length - 1; i >= 0; i--) {
+                                    a[i].className  =  a[i].className.replace(' choise','');
+                                };
+                                wrapUl.getElementsByTagName('a')[param.currentLi].className += ' choise';
+                            }
+                        })
+                    }
+                }
+            });
+        function calldo(param){
+                //内存释放
+                var alist = param.li[param.preLi].getElementsByClassName('btn_win');
+                for (var i = 0; i < alist.length; i++) {
+                    constant.removeEventListen(alist[i],onBtn_win);
+                }
+
+                var alist = param.li[param.preLi].getElementsByClassName('mod_tab');
+                for (var i = 0; i < alist.length; i++) {
+                    var divlist = alist[i].getElementsByClassName('layer');
+                    var btn =  alist[i].getElementsByTagName('a');
+                    constant.removeChange(divlist,btn,onMod_tab);
+                }
+
+                // 切换页面后还原前一页动画
+                keynote.prerefersh(param);
+                /********   柱状图(自动) *************/
+                // 自动运行的动画请加上class 与第一个参数名称相同class 名称
+                keynote.addActive('auto_active', param);
+                /********   柱状图(按钮) *************/
+                // 给按钮加方法 执行动画
+                var alist = param.li[param.currentLi].getElementsByClassName('interact');
+                for (var i = 0; i < alist.length; i++) {
+                    var btn = alist[i].getElementsByTagName('a')[0];
+                    constant.addEventListen(btn, onInteract);
+                }
+                function onInteract() {
+                    var ele = this.parentElement.getElementsByClassName('layer')
+                    for (var j = 0; j < ele.length; j++) {
+                        ele[j].className = ele[j].className.replace(' end', ' active');
+                        keynote.addActive('active', param);
+                    };
+
+                    constant.removeEventListen(btn, onInteract);
+                }
+
+                /********   弹出窗口 ********/
+                var alist = param.li[param.currentLi].getElementsByClassName('btn_win');
+                for (var i = 0; i < alist.length; i++) {
+                    constant.addEventListen(alist[i],onBtn_win)
+                }
+                function onBtn_win() {
+                    var num = this.id.replace('btn_win', '');
+                    constant.win('win' + num);
+                }
+
+
+                /****** tab *********/
+                var alist = param.li[param.currentLi].getElementsByClassName('mod_tab');
+                for (var i = 0; i < alist.length; i++) {
+                    var divlist = alist[i].getElementsByClassName('layer');
+                    var btn =  alist[i].getElementsByTagName('a');
+                    constant.change(divlist,btn,onMod_tab);
+                }
+                function onMod_tab(){
+                    for (var j = 0; j < divlist.length; j++) {
+                        if(divlist[j].className.indexOf('end') < 0)
+                            divlist[j].className += ' end';
+                        if(alist[j].className.indexOf('end') < 0)
+                            alist[j].className += ' end';
+                    }
+                    var ele = this.parentElement.getElementsByClassName('layer')[0];
+                    ele.className  = ele.className.replace(/\s*(end)/,'');
+                    this.className = this.className.replace(/\s*(end)/,'');
+                }
+        }
+    })()
+        </textarea>
+        <textarea  id="jstext_add" type="text/javascript" style="display: none">(function(){
+            var key = keynote.init({
+                ul:'keynote',
+                liClass : 'keynote_li',
+                callBack : function(param) {
+                    calldo(param);
+                    var wrapParam =param;
+
+                    var alist = param.li[param.currentLi].id.replace('li','');  
+                    alist = document.getElementById('multilevel'+ alist);
+                    if(alist){
+                        var multilevel =  keynote.init({
+                            ul:alist.id,
+                            liClass : 'multilevel_li',
+                            multilevel: 1,
+                            elevator: 0,
+                            liheight: 748,
+                            callBack : function(param) {
+                                calldo(param);
+                            }
+                        })
+                    }
+                }
+            });
+        function calldo(param){
+                //内存释放
+                var alist = param.li[param.preLi].getElementsByClassName('btn_win');
+                for (var i = 0; i < alist.length; i++) {
+                    constant.removeEventListen(alist[i],onBtn_win);
+                }
+
+                var alist = param.li[param.preLi].getElementsByClassName('mod_tab');
+                for (var i = 0; i < alist.length; i++) {
+                    var divlist = alist[i].getElementsByClassName('layer');
+                    var btn =  alist[i].getElementsByTagName('a');
+                    constant.removeChange(divlist,btn,onMod_tab);
+                }
+
+                // 切换页面后还原前一页动画
+                keynote.prerefersh(param);
+                /********   柱状图(自动) *************/
+                // 自动运行的动画请加上class 与第一个参数名称相同class 名称
+                keynote.addActive('auto_active', param);
+                /********   柱状图(按钮) *************/
+                // 给按钮加方法 执行动画
+                var alist = param.li[param.currentLi].getElementsByClassName('interact');
+                for (var i = 0; i < alist.length; i++) {
+                    var btn = alist[i].getElementsByTagName('a')[0];
+                    constant.addEventListen(btn, onInteract);
+                }
+                function onInteract() {
+                    var ele = this.parentElement.getElementsByClassName('layer')
+                    for (var j = 0; j < ele.length; j++) {
+                        ele[j].className = ele[j].className.replace(' end', ' active');
+                        keynote.addActive('active', param);
+                    };
+                    constant.removeEventListen(btn, onInteract);
+                }
+
+
+                /********   弹出窗口 ********/
+                var alist = param.li[param.currentLi].getElementsByClassName('btn_win');
+                for (var i = 0; i < alist.length; i++) {
+                    constant.addEventListen(alist[i],onBtn_win)
+                }
+                function onBtn_win() {
+                    var num = this.id.replace('btn_win', '');
+                    constant.win('win' + num);
+                }
+
+
+                /****** tab *********/
+                var alist = param.li[param.currentLi].getElementsByClassName('mod_tab');
+                for (var i = 0; i < alist.length; i++) {
+                    var divlist = alist[i].getElementsByClassName('layer');
+                    var btn =  alist[i].getElementsByTagName('a');
+                    constant.change(divlist,btn,onMod_tab);
+                }
+                function onMod_tab(){
+                    for (var j = 0; j < divlist.length; j++) {
+                        if(divlist[j].className.indexOf('end') < 0)
+                            divlist[j].className += ' end';
+                        if(alist[j].className.indexOf('end') < 0)
+                            alist[j].className += ' end';
+                    }
+                    var ele = this.parentElement.getElementsByClassName('layer')[0];
+                    ele.className  = ele.className.replace(/\s*(end)/,'');
+                    this.className = this.className.replace(/\s*(end)/,'');
+                }
+                // var divlist = document.getElementById('tab1').getElementsByClassName('layer');
+                //  alist = document.getElementById('tab1').getElementsByTagName('a');
+                //  constant.change(divlist,alist);
+        }
+        })()
+        </textarea>
+        
+        <script type="text/javascript" language="javascript">
+         window.onload = function(){
+                //
+                var BTN_INTERACT = NUM_ANIMA = WIN　=　TEXT = NUM_NIMA = BTN_INTACT = BTN_WIN = KEYNOTE_SUM = 0;
+                var $ = document;
+                var on_change_nav = getId('nav_chapter_1');
+
+                
+                
+            
+                // 添加章节
+                var nav = getId('nav'),
+                    add_nav_chapter = getId('add_nav_chapter'),
+                // 获得当前charpter 的style
+                    charpter_style  = getId('charpter_style'),
+                // keynote
+                //    keynote = getId('keynote'),
+                // 背景
+                    add_libac = getId('add_libac'),
+                    input_bac = getId('input_bac'),
+                // 添加动画
+                    sele_add = getId('sele_add'),
+                    animation_btn_input = getId('animation_btn_input'),
+                    btn_animation_mod =  getId('btn_animation_mod'),
+                    animation_input = getId('animation_input'),
+                    auto_animation_mod =  getId('auto_animation_mod'),
+                    btn_be_add = getId('btn_be_add');
+
+                //var frame = document.getElementById("fram").contentDocument,
+
+                var navInHtml = '<a class="nav_a" href = "javascript:void(0);"></a>\n\
+                        <textarea class="chapter_html inHtml" style="height:0; width:0; display: none">\n\
+                        </textarea>\n\
+                        <textarea class="chapter_css inCss" style="height:0; width:0; display: none">\n\
+                        </textarea>\n\
+                        <div class="classify">\n\
+                        <div class="main">';
+                    
+                var classifyInHtml = '<a class="nav_a" href = "javascript:void(0);"></a>\n\
+                                    <textarea class="classify_html inHtml" style="height:0; width:0; display: none"></textarea>\n\
+                                    <textarea class="classify_css inCss" style="height:0; width:0; display: none"></textarea>';
+
+                function getId(id){
+                     return document.getElementById(id);
+                }
+                /** 保存当前页的HTML 和 CSS **/
+                function save(){
+                    on_change_nav.getElementsByClassName('nav_a')[0].parentElement.style.cssText = '';
+                    on_change_nav.getElementsByClassName('nav_a')[0].onclick = function(){
+                        review(this.parentElement);
+                    }
+                    on_change_nav.getElementsByClassName('inCss')[0].innerHTML = charpter_style.innerHTML;
+                    on_change_nav.getElementsByClassName('inHtml')[0].innerHTML =  getId('keynote').innerHTML;
+                    getId('keynote').innerHTML = '';
+                    charpter_style.innerHTML = '';
+                    
+                }
+                /**  新建一个章节的的html **/
+                function addchapter_html(){
+                    //frame_ul = frame.getElementById("keynote");
+                    //frame_ul.style.marginLeft = -1024*KEYNOTE_SUM+'px';
+                    KEYNOTE_SUM++;
+                    var innerHTML = '<li class="keynote_li keynote_li'+KEYNOTE_SUM+'" id="li'+KEYNOTE_SUM+'">\n\
+    <div class="main">\n\
+    </div>\n\
+</li>';
+                    getId('keynote').innerHTML = '\n'+innerHTML;
+                }
+
+                /** 新建一个二级的的html **/
+                function addClassify_html(btn){
+                    var par = btn.parentElement;
+                    var num = 0;
+                    if(par.children.length >= 2){
+                        var setsum = par.parentElement.parentElement.parentElement;
+                        num  = Number(setsum.getAttribute('data-classify'));
+                        setsum.setAttribute('data-classify',par.children.length);
+                        var charpter = setsum.id.replace('nav_chapter_','');
+                    }
+                    var innerHTML = '<li class="multilevel_li multilevel_li'+par.children.length+'"  id="multilevel'+charpter+'_li'+par.children.length+'">\n\
+    <div class="main">\n\
+    </div>\n\
+</li>';
+                    getId('keynote').innerHTML = '\n'+innerHTML;
+                }
+
+                // 添加页面点击事件
+                add_nav_chapter.onclick = function(){
+                    save();
+                    // nav 处理
+                    addNav();
+                    // 新建一个章节的的html
+                    addchapter_html();
+                }
+                
+                
+                
+                function addNav(){
+                    var nav_chapters = document.getElementsByClassName('nav_chapter');
+                    var ele = document.createElement('div');
+                    ele.className = 'nav_chapter';
+                    ele.id = 'nav_chapter_'+(KEYNOTE_SUM + 1);
+                    ele.setAttribute('data-classify','0')
+                    ele.innerHTML = navInHtml + '<div class="nav_classify classify_add" id="c'+(KEYNOTE_SUM+1)+'_addclassfy"><a href="#"></a></div>\n\
+        </div>\n\
+    </div>\n\
+</div>';
+                    nav_chapters[0].parentElement.insertBefore(ele,nav_chapters[nav_chapters.length-1]);
+                    on_change_nav = ele;
+                    on_change_nav.getElementsByClassName('nav_a')[0].parentElement.style.cssText = 'background:rgba(179, 96, 96, 1)';
+                    // 给添加二级页面按钮添加方法
+                    var btn = ele.getElementsByClassName('classify_add')[0];
+                    getId('whole').className = getId('whole').className.replace(' hidden','');
+                    getId('review').className = getId('review').className.replace(' hidden','');
+                    getId('review').className += ' hidden';
+                    
+                    btn.onclick = function(){
+                        // 存储
+                        save();
+                        // 按钮处理
+                        addClassify(this);
+                        // 新建一个Class的的html
+                        addClassify_html(btn);
+                    }
+                }
+                function addClassify(btn){
+                    var par = btn.parentElement;
+                    var navNum = btn.id.substring(btn.id.indexOf('c')+1,btn.id.indexOf('_addclassfy'));
+                    var ele = document.createElement('div');
+                    ele.className  = 'nav_classify';
+                    ele.id = 'chapter' + navNum + '_classify'+ par.children.length;
+                    ele.innerHTML = classifyInHtml;
+                    par.insertBefore(ele,btn);
+                    getId('whole').className = getId('whole').className.replace(' hidden','');
+                    getId('review').className = getId('review').className.replace(' hidden','');
+                    getId('review').className += ' hidden';
+                    on_change_nav = ele;
+                    on_change_nav.getElementsByClassName('nav_a')[0].parentElement.style.cssText = 'background:rgba(179, 96, 96, 1)';
+                }
+                
+                
+                //添加背景按钮 
+                add_libac.onclick = function(){
+                    addli_bac();
+                }
+                function addli_bac(){
+                    var id = getId('keynote').getElementsByTagName('li')[0].id;
+                    css = '\n ul.keynote li#'+id+'{';
+                    if(input_bac.value.indexOf('#') == 0){
+                        css += 'background-color:'+input_bac.value+'}';
+                    }else{
+                        css += 'background-image:url(screen/'+input_bac.value+')}';
+                    }
+                    charpter_style.innerHTML += css +'\n';
+                };
+                
+                // 添加动画
+                sele_add.onchange = function(){
+                    seleChange();
+                };
+                
+                /****** 功能模块的 ********/
+                var attribute = {
+                    height:['height',''],
+                    width:['width',''],
+                    font_size:['font-size',''],
+                    top:['top',''],
+                    left:['left',''],
+                    background:['background',''],
+                    color:['color',''],
+                    line_height:['line-height',''],
+                    content:'',
+                    direct:'flash'
+                }
+                var operate = {
+                    'text':{view:'text_view',input:'text_input',btn:'text_add'},
+                    'win':{view:'win_btn_view',input:'win_btn_input',btn:'win_add'},
+                    'animation_btn':{view:'animation_btn_view',input:'animation_btn_input',btn:'animation_btn_add'},
+                    'animation':{view:'animation_view',input:'animation_input',btn:'animation_add'},
+
+                }
+                 var operateView = null;
+                // 按钮添加
+                getId(operate.text.btn).onclick = function(){
+                    // operates(this.parentElement.getElementsByClassName('height')[0])
+                    var view = getId('screen').getElementsByClassName('view')[0];
+                    var flag = true;
+                    if(view && view.style.cssText != ''&& (flag = confirm('是否保存正在编辑的文本？'))){
+                    //if(operateView != null){
+                        confirmFun(operateView);
+                        operateView = null;
+                    } 
+                     //}
+                    if(flag){
+                        operateView = createView.init({height:'200px',hasText:true,toMode:'btn',confirmFun:confirmFun});
+                        getId('screen').appendChild(operateView.view);
+                    }
+                } 
+                confirmFun = function(){
+                        var view =  operateView.view;
+                        if(operateView.toMode == 'text' && view && view.style.cssText != ''){
+                                TEXT++;
+                                 var inHtml = '<div class="text text'+TEXT+'" id="text'+TEXT+'">' + view.getElementsByClassName('text')[0].innerHTML + '</div>';
+                                 var main = getId('keynote').getElementsByClassName('main')[0].innerHTML  += inHtml +'\n';
+
+                                 var css ='#text' + TEXT + '{' + view.style.cssText + '}' ;
+                                 charpter_style.innerHTML += css +'\n';
+                                 view.style.cssText = '';
+                                 view.innerHML = '';
+                        }else if(operateView.toMode == 'btn' && view){
+                            WIN++;
+                            var inHtml = '\n<a href="#" class="btn btn_win" id="btn_win'+WIN+'">' + '</a>';
+                            var main =  getId('keynote').getElementsByClassName('main')[0].innerHTML += inHtml +'\n';
+
+                            var css = '#btn_win'+WIN+ '{' + view.style.cssText + '}' ;
+                            charpter_style.innerHTML += css +'\n';
+                            view.style.cssText = '';
+                            view.innerHML = '';
+                            //加窗口
+                            str = '<div id="win'+WIN+'" class="window" style=""> \
+      <div class="box">\
+        <div class="m_close"><a class="close"></a></div>\
+        <div class="cont">\
+         <img src="screen/'+getId('content').value+'"/>\
+        </div>\
+      </div>\
+    </div>'
+                            
+                            where = getId('fram');
+                            where.innerHTML += str +'\n';
+                            getId('windtext').innerHTML +=  str +'\n';
+                            
+                        }
+                        createView.delete(operateView.params);
+                     }
+                getId(operate.win.btn).onclick = function(){
+                    var view = getId('screen').getElementsByClassName('view')[0];
+                    if(view && view.style.cssText != ''){
+                        //if(operateView != null){
+                        confirmFun(operateView);
+                        operateView = null;
+                    }
+                     operateView = createView.init({height:'80px',width:'200px',hasText:false,toMode:'btn',confirmFun:confirmFun});
+                     getId('screen').appendChild(operateView.view);
+                    /********   弹出窗口 ********/
+                    var alist = document.getElementsByClassName('btn_win');
+                    for (var i = 0; i < alist.length; i++) {
+                        constant.addEventListen(alist[i],onBtn_win)
+                    }
+                    function onBtn_win() {
+                        var num = this.id.replace('btn_win', '');
+                        constant.win('win' + num);
+                    }
+                } 
+
+                // operate 监听
+                // var kan = document.getElementsByClassName('kan');
+                // for (var i=0; i < kan.length; i++) {
+                //     kan[i].addEventListener('keyup',function(){
+                //         operates(this);
+                //     });
+                //     kan[i].addEventListener('blur',function(){
+                //         operates(this);
+                //     });
+
+                // };
+                // getId('text—align').addEventListener('change',function(){
+                //         operates(this);
+                //  });
+                getId('mast_type').addEventListener('change',function(){
+                        operates(this);
+                 });
+                
+                
+
+                // function operates(btn){
+                //     var input = btn.parentElement.parentElement;
+                //     var view = getId(input.id.replace('_input','_view'));
+                //     var text_aline = getId('text—align');
+                //     // 文本监听
+                //     if (input.id == operate.text.input) {
+                //         getAttr(input);
+                //         var aline = 'left';
+                //         switch(text_aline.value){
+                //             case '1':
+                //                 aline = 'center'
+                //                 break;
+                //             case '0':
+                //                 aline = 'left';
+                //                 break;
+                //             case '2':
+                //                 aline = 'right';
+                //                 break;
+                //         }
+                //         view.innerHTML = input.getElementsByClassName('cont')[0].value;
+
+                //         view.style.cssText = attribute.height[0]+':'+attribute.height[1]+'; '
+                //                            + attribute.width[0]+':'+attribute.width[1]+'; '
+                //                            + attribute.left[0]+':'+attribute.left[1]+'; '
+                //                            + attribute.top[0]+':'+attribute.top[1]+'; '
+                //                            + attribute.background[0]+':'+attribute.background[1]+'; '
+
+                //                            + attribute.font_size[0]+':'+attribute.font_size[1]+'; '
+                //                            + attribute.color[0]+':'+attribute.color[1]+'; '
+                //                            + attribute.line_height[0]+':'+attribute.line_height[1]+'; '
+                //                            +'text-align:'+aline +'; text-indent:2em';
+
+                //     }else if(input.id == operate.win.input) {
+                //         //getAttr(input);
+                //         //view.innerHTML = input.getElementsByClassName('content')[0].value;
+                //         view.style.cssText = attribute.height[0]+':'+attribute.height[1]+'; '
+                //                            + attribute.width[0]+':'+attribute.width[1]+'; '
+                //                            + attribute.left[0]+':'+attribute.left[1]+'; '
+                //                            + attribute.top[0]+':'+attribute.top[1]+'; '
+                //                            + attribute.background[0]+':'+attribute.background[1]+'; '
+                //     }else if(input.id == operate.animation.input){
+                //        // getAttr(input);
+                //         attribute.step = getId('step').value;
+                //         attribute.sum = getId('sum').value;
+                //         attribute.direct = getId('direct').value;
+                //         view.style.cssText = attribute.height[0]+':'+attribute.height[1]+'; '
+                //                            + attribute.width[0]+':'+attribute.width[1]+'; '
+                //                            + attribute.left[0]+':'+attribute.left[1]+'; '
+                //                            + attribute.top[0]+':'+attribute.top[1]+'; '
+                //                            + attribute.background[0]+':'+attribute.background[1]+'; '
+
+                //     }else if(input.id == operate.animation_btn.input){
+                //         //getAttr(input);
+                //         //view.innerHTML = input.getElementsByClassName('content')[0].value;
+                //         view.style.cssText = attribute.height[0]+':'+attribute.height[1]+'; '
+                //                            + attribute.width[0]+':'+attribute.width[1]+'; '
+                //                            + attribute.left[0]+':'+attribute.left[1]+'; '
+                //                            + attribute.top[0]+':'+attribute.top[1]+'; '
+                //                            + attribute.background[0]+':'+attribute.background[1]+'; '
+                //     }
+                //     function getAttr(input){
+                //         var val = '';
+                //         attribute.height[1] = (val = input.getElementsByClassName(attribute.height[0])[0].value)&&(val+'px');
+                //         attribute.width[1] = (val = input.getElementsByClassName(attribute.width[0])[0].value)&&(val+'px');
+                //         attribute.left[1] = (val = input.getElementsByClassName(attribute.left[0])[0].value)&&(val+'px');
+                //         attribute.top[1] = (val = input.getElementsByClassName(attribute.top[0])[0].value)&&(val+'px');
+                //         val = input.getElementsByClassName(attribute.font_size[0])[0];
+                //         attribute.font_size[1] = val?val.value + 'px':'';
+                //         val = input.getElementsByClassName(attribute.color[0])[0];
+                //         attribute.color[1] =  val?val.value:'';
+                //         val = input.getElementsByClassName(attribute.line_height[0])[0];
+                //         attribute.line_height[1] =  val?val.value+'px':'';
+                //         val = input.getElementsByClassName(attribute.background[0])[0].value;
+                //         if(val.indexOf('#') == 0){
+                //             if(val.indexOf('#-') == 0){
+                //                 attribute.background[1] = val.replace('#','')
+                //             }else{
+                //                 attribute.background[1] = val;
+                //             }
+                //         }else if(val != ''){ 
+                //             attribute.background[1] = 'url(screen/' + val +')';
+                //         }
+                //         attribute.background[1] += ' no-repeat 0 0'
+                //     }
+                // }
+                getId(operate.animation.btn+'1').onclick = function(){
+                    if(confirm('确定吗!')){
+                        var where = document.createElement('div');
+                        where.className = 'mod_axle';
+                        getId('keynote').getElementsByClassName('main')[0].appendChild(where);
+                        newMast(this,true,where);
+                    }
+                }
+                getId(operate.animation_btn.btn).onclick = function(){
+                    if(confirm('确定吗!')){
+                        var where = document.createElement('div');
+                        where.className = 'mod_layer  mod_axle interact'
+                        getId('keynote').getElementsByClassName('main')[0].appendChild(where);
+                        add_btn_con(this,where);
+                    }
+                }
+                function add_btn_con(btn,where){
+                    operates(btn.parentElement.getElementsByClassName('height')[0]);
+                    var view = getId(operate.animation_btn.view);
+                    if(view.style.cssText != ''){
+                        BTN_INTERACT++;
+                        var button = '\n<a href="javascript:void(0);" class="btn btn_layer" id="btn_interact'+BTN_INTERACT+'"></a>';
+                        where.id = 'interact'+BTN_INTERACT;
+                        where.innerHTML += button;
+                        var css = '.mod_layer #btn_interact'+BTN_INTERACT+'{'+view.style.cssText+'}';
+                        charpter_style.innerHTML += css +'\n';
+                        view.style.cssText = '';
+                        if(where){
+                            getId(operate.animation.input).className='';
+                            getId(operate.animation_btn.input).className='hidden';
+                            //getId(operate.animation.btn+'1').className='hidden';
+                            getId(operate.animation.btn+'2').onclick = function(){
+                                if(confirm('确定吗!')){
+                                    newMast(this,false,where);
+                                }
+                            }
+                            getId('over').onclick = function(){
+                                seleChange();
+                                /********   柱状图(按钮) *************/
+                                // 给按钮加方法 执行动画
+                                var alist = getId('keynote').getElementsByClassName('interact');
+                                for (var i = 0; i < alist.length; i++) {
+                                    var btn = alist[i].getElementsByTagName('a')[0];
+                                    constant.addEventListen(btn, onInteract);
+                                }
+                            }
+                        }
+                    }else{
+                        alert('请先填写');
+                    }
+                }
+                function seleChange(){
+                    auto_animation_mod.className = auto_animation_mod.className.replace('hidden','');
+                    animation_input.className = animation_input.className.replace('hidden','');
+                    btn_animation_mod.className = btn_animation_mod.className.replace('hidden','');
+                    animation_btn_input.className = animation_btn_input.className.replace('hidden','');
+                    switch(sele_add.value){
+                        case '0': 
+                            animation_btn_input.className += 'hidden';
+                            btn_animation_mod.className += 'hidden'; 
+                            break;
+                        case '1': 
+                            animation_input.className += ' hidden'; 
+                            auto_animation_mod.className += ' hidden';
+                            break;
+                    }
+                }
+                // 新增一个柱状图
+                var newMast = function(btn,auto,where){
+                    operates(btn.parentElement.parentElement.getElementsByClassName('height')[0])
+                    var view = getId(operate.animation.view);
+                    if(view.style.cssText != ''){
+                        NUM_ANIMA++;
+                        if(auto){
+                            var mast = '\n<div class="auto_active active '
+                        }else{
+                            var mast = '\n<div class="layer end '
+                        }
+                        mast += attribute.direct+'" id="active'+NUM_ANIMA+'"></div>';
+                        where.innerHTML += mast;
+                        var css = '.mod_axle #active'+NUM_ANIMA+'{'+view.style.cssText+'}';
+                        charpter_style.innerHTML += css +'\n';
+                        //kankan.id = 'active'+NUM_ANIMA;
+                        if(direct.value == ''||direct.value =='flash' ){
+                            css = $columnar.display(ele,'active'+NUM_ANIMA,attribute.step ,attribute.sum);
+                        }else{
+                            css = $columnar.direction(attribute.direct,'active'+NUM_ANIMA,attribute.step ,attribute.sum);
+                        }
+                        charpter_style.innerHTML += css +'\n';
+                        //kankan.id = 'kankan';
+                        view.style.cssText = '';
+                    }else{
+                        alert('请先填写');
+                    }
+                }
+
+                //预览动画
+                function onInteract() {
+                    var ele = this.parentElement.getElementsByClassName('layer');
+                    var param = {currentLi:0,li:getId('keynote').getElementsByTagName('li')}
+                    for (var j = 0; j < ele.length; j++) {
+                        ele[j].className = ele[j].className.replace(' end', ' active');
+                        keynote.addActive('active',param );
+                    };
+                    //constant.removeEventListen(btn, onInteract);
+                }
+                
+                function preview(){
+                    /********   柱状图(自动) *************/
+                    // 自动运行的动画请加上class 与第一个参数名称相同class 名称
+                    var param = {currentLi:0,li:getId('keynote').getElementsByTagName('li')}
+                    keynote.addActive('auto_active', param);
+                    /********   柱状图(按钮) *************/
+                    // 给按钮加方法 执行动画
+                    var alist = getId('keynote').getElementsByClassName('interact');
+                    for (var i = 0; i < alist.length; i++) {
+                        var btn = alist[i].getElementsByTagName('a')[0];
+                        constant.addEventListen(btn, onInteract);
+                    }
+                    /********   弹出窗口 ********/
+                    var alist = document.getElementsByClassName('btn_win');
+                    for (var i = 0; i < alist.length; i++) {
+                        constant.addEventListen(alist[i],onBtn_win)
+                    }
+                    function onBtn_win() {
+                        var num = this.id.replace('btn_win', '');
+                        constant.win('win' + num);
+                    }
+                }
+
+                // 修改部分代码b.
+                function review(ele){
+                    save();
+                    on_change_nav = getId(ele.id);
+                    on_change_nav.getElementsByClassName('nav_a')[0].parentElement.style.cssText = 'background:rgba(179, 96, 96, 1)';
+                    getId('keynote').innerHTML = ele.getElementsByClassName('inHtml')[0].innerText;
+                    charpter_style.innerHTML = ele.getElementsByClassName('inCss')[0].innerText;
+                    preview();
+                    getId('whole').className = getId('whole').className.replace(' hidden','');
+                    getId('whole').className += ' hidden';
+                    getId('review').className = getId('review').className.replace(' hidden','');
+                    getId('review').onclick = function(){
+                        getId('review').className = getId('review').className.replace(' hidden','');
+                        getId('review').className += ' hidden';
+                        getId('keynote').getElementsByClassName('main')[0].innerHTML = '';
+                        charpter_style.innerHTML = '';
+                        getId('whole').className = getId('whole').className.replace(' hidden','');
+                        
+                    }
+                }
+                function delet(){
+                    var par = on_change_nav.parentElement.removeChild(on_change_nav);
+                    var ele = getId('nav').getElementsByClassName('main')[0].children[0];
+                    if(ele.id != 'nav_add'){
+                        review(ele);
+                    }else{
+                        // 新建一个章节的的html
+                        addchapter_html();
+                        // nav 处理
+                        addNav();
+                    }
+                };
+                getId('close_a').onclick = function(){
+                    //on_change_nav
+                    delet();
+                };
+
+                (function(){
+                    addchapter_html();
+                    var btn = document.getElementsByClassName('classify_add')[0];
+                    btn.onclick = function(){
+                        // 存储
+                        save();
+                        // 按钮处理
+                        addClassify(this);
+                        // 新建一个Class的的html
+                        addClassify_html(btn);
+                    }
+                })();
+                /********   弹出窗口 ********/
+                
+                constant.addEventListen(getId('finish'),onBtn_win)
+                function onBtn_win() {
+                    constant.win('wind_save');
+                }
+                var outputHtml = "", outputCss ="",outputjs="",outNav="",outMap="",outWap = "";
+
+
+                 var frame = getId("frame");//.contentDocument;
+        
+                //完成时
+                getId('need_nav').onclick = function(){
+                    outputpage();
+                    outWap = '<div class="wrap">\n' + outputHtml + outNav + outMap + getId('windtext').innerText + '\n</div>';
+                    outputjs = getId('jstext_addNav').innerText;
+                     frame.innerHTML  = outputIndex();
+                    //frame.documentElement.innerHTML  = outputIndex();
+                    getId('wind_save').style.cssText = "";
+                    constant.win('wind_play');
+                    //console.log(outWap)
+                }
+                getId('no_nav').onclick = function(){
+                    outputpage();
+                    outWap = '<div class="wrap">\n' + outputHtml + getId('windtext').innerText + '\n</div>';
+                    outputjs = getId('jstext_add').innerText;
+                    frame.innerHTML  = outputIndex();
+                    //frame.documentElement.innerHTML  = outputIndex();
+                    getId('wind_save').style.cssText = "";
+                    constant.win('wind_play');
+                    //console.log(outWap)
+                }
+
+                //加单个li
+                function linkli(unitELe){
+                    outputHtml += unitELe.getElementsByClassName('inHtml')[0].innerText+'\n';
+                    outputCss += '/**** '+ unitELe.id + ' ****/' 
+                        + unitELe.getElementsByClassName('inCss')[0].innerText+'\n';
+                }
+                //生成导航栏
+                function createNav_li(ele){
+                        outNav += '<li class="liseq'+ ele.id.replace('nav_chapter_','') +'"><a href="javascript:void(0);"><img src="screen/1.png"/></a></li>\n';
+                }
+                function outputpage(){
+                    save();
+                    outNav = '\
+<nav id="nav" class="nav display">\n\
+    <div class="cont">\n\
+        <ul id="nav_ul">\n';
+                    outMap = '\
+<map id="map" class="nav">\n\
+    <div class="cont">\n\
+        <ul id="map_ul">\n'
+                    outputHtml = '  <ul id="keynote" class="keynote">\n'
+                    var main = getId('nav').getElementsByClassName('main')[0];
+                    for(var i = 0 ; i < main.children.length - 1; i++ ){
+                        var ele = main.children[i];
+                        createNav_li(ele);
+                        var num = ele.id.replace('nav_chapter_','') 
+                        var children = ele.getElementsByClassName('main')[0].children;
+                        if(children.length == 1){
+                            createMap_li()
+                            outMap += '</li>\n';
+                            linkli(ele);
+                        }else if(children.length > 1){
+                            outputHtml += '     <li class="keynote_li keynote_li'+ num +' mul" id="li' + num + '">\n\
+                    <ul class="multilevel" id="multilevel'+ num +'">';
+                            ele.getElementsByClassName('inHtml')[0].innerHTML = (ele.getElementsByClassName('inHtml')[0].innerText.replace(/keynote_li/g,'multilevel_li')).replace('id="li','id="multilevel_li');
+                            ele.getElementsByClassName('inCss')[0].innerHTML = ele.getElementsByClassName('inCss')[0].innerText.replace(/#li/g,'#multilevel_li');
+                            createMap_li() ;
+                            outMap +=  '\n<ul class="secondary">\n';
+                            //createMap_li() ;
+                            // outMap += '</li>\n';
+                            outputHtml += '   '
+                            linkli(ele);
+                            for(var j = 0 ; j < children.length-1; j++ ){
+                                createMap_li() 
+                                outMap += '</li>\n';
+                                console.log(children[j]);
+                                outputHtml += '   '
+                                linkli(children[j]);
+                            }
+                            outMap += '</ul>\n</li>\n';
+                            outputHtml += '</ul>\n</li>\n';
+                        }
+                    }
+
+                    outputHtml += '</ul>\n';
+                    outNav += '</ul>\n\
+        <a href="javascript:void(0);" id="open" class="open"><em></em></a>\n\
+    </div>\n\
+</nav>\n';
+                    outMap += '</ul>\n\
+    </div>\n\
+    <div class = "quilt"></div>\n\
+</map>\n';
+                }
+
+                //生成单条地图栏
+                function createMap_li(){
+                    outMap += '<li class="liseq"><a href="javascript:void(0);"></a>'
+                }
+                function outputIndex(){
+                  var str = '<!DOCTYPE html>\n\
+<html lang="zh">\n\
+  <head>\n\
+    <meta charset="utf-8" />\n\
+    <title>slide</title>\n\
+    <meta name="author" content="Winda Tang" />\n\
+    <script type="text/javascript" src="screen/constant.js"><'+'/'+'script>\n\
+    <script type="text/javascript" src="screen/slide.js"><'+'/'+'script>\n\
+    <link rel="stylesheet" type="text/css" href="screen/global.css">\n\
+  </head>\n\
+  <style id="style" type="text/css">\n '
+ + outputCss + '\n' 
+ + '</style>\n\
+  <body>\n'
+ + outWap + '\n' 
+ + '<script type="text/javascript">' + '\n' 
+ + outputjs + '\n' 
+ + '<'+'/'+'script> \n\
+  </body> \n\
+</html>'
+      return str;
+                }
+
+            }
+
+        
+        </script>
+
+        <script>
+            
+        </script>
+
+    <div id="wind_save" class="window" style=""> 
+          <div class="box">
+            <div class="m_close"><a class="close"></a></div>
+            <div class="cont">
+              <div style="height:100px; width:220px">
+                <a id="need_nav" class="make_btn" style="width:160px; margin:10px" href="javascript:void(0);">需要导航</a>
+                <a id="no_nav" class="make_btn" style="width:160px; margin:10px" href="javascript:void(0);">无导航</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>  
+    <div id="wind_play" class="window" style=""> 
+          <div class="box">
+            <div class="m_close"><a class="close"></a></div>
+            <div class="cont">
+             <textarea id="frame" style="margin: 2px; width: 1024px; height: 748px;"  ></textarea>
+              <!--iframe id="frame" src="frame.html" height="780" width="1030" ></iframe-->
+            </div>
+          </div>
+        </div>
+    </div>  
+    </body>
+</html>

@@ -1,0 +1,157 @@
+@charset "UTF-8";
+/**** detail.css ****/
+/** background **/
+ul.keynote>li.keynote_li,ul.keynote>li .multilevel_li{
+	background:url(bgli.jpg);
+}
+
+ul.keynote>li.mul{
+	background:url(bg.jpg) repeat;
+}
+
+/*** ====柱状图（自动）==== ***/
+#li2 .main{
+	background: url(axle.jpg);
+	height: 538px;
+	width: 823px;
+	margin: 0 auto;
+	margin-top:50px;
+}
+#li2 .mod_axle .text{
+	color: #fff;
+	font-size:14px;
+}
+ul.keynote>li h2{ color:#7e2f2d; width: 100%; height: 105px; line-height: 105px; font-size:46px; font-weight:bold;text-shadow:0px 0px 0 rgb(31,-38,7),1px 1px 0 rgb(9,-60,-15),2px 2px 0 rgb(-12,-81,-36), 3px 3px 0 rgb(-33,-102,-57),4px 4px 3px rgba(0,0,0,0.65),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);}
+/** 上下左右 **/
+ .mod_axle #up1{background:url(mast.png) 0 0 no-repeat; height: 250px; width: 83px;top:18px; left:161px }
+ .mod_axle #down1{background:url(mast.png) -85px 0 no-repeat; height: 250px; width: 83px; top: 269px;left: 576px; }
+ .mod_axle #right1{background:url(mast.png) 0 -250px no-repeat; height:83px ; width: 250px; top: 20px;left: 411px;  }
+ .mod_axle #left1{background:url(mast.png) 0 -334px no-repeat; height:83px ; width: 250px; top: 434px; left: 159px;  }
+
+
+ .mod_axle #up1  span{top: 30px }
+ .mod_axle #down1  span{top: 100px}
+ .mod_axle #left1  span{left: 30px;top: 30px }
+ .mod_axle #right1  span{right: 30px;top: 30px }
+
+ .mod_axle #up2{background:url(mast.png) -169px 0 no-repeat; height: 102px; width: 83px; right: 413px;bottom: 271px; }
+ .mod_axle #down2{background:url(mast.png) -252px 0 no-repeat; height: 102px; width: 83px; right: 329px;bottom: 167px; }
+ .mod_axle #right2{background:url(mast.png) -274px -106px no-repeat; height:83px ; width: 102px; right: 310px;bottom: 269px;}
+ .mod_axle #left2{background:url(mast.png) -169px -106px no-repeat; height:83px ; width: 102px; right: 414px;bottom: 186px; }
+
+
+
+
+
+/*** 柱状图（按钮）***/
+#li3 .main{
+	background: url(axle.jpg);
+	height: 538px;
+	width: 823px;
+	margin: 0 auto;
+	margin-top:10px;
+}
+#li3 .btn{
+	bottom: -100px; width: 300px;
+	display: block;
+	position: absolute;
+}
+.mod_axle #up3{background:url(mast.png) 0 0 no-repeat; height: 250px; width: 83px;top:18px; left:161px }
+.mod_axle #down3{background:url(mast.png) -85px 0 no-repeat; height: 250px; width: 83px; top: 269px;left: 576px; }
+.mod_axle #right3{background:url(mast.png) 0 -250px no-repeat; height:83px ; width: 250px; top: 20px;left: 411px;  }
+.mod_axle #left3{background:url(mast.png) 0 -334px no-repeat; height:83px ; width: 250px; top: 434px; left: 159px;  }
+
+
+.mod_axle #up20{ background:#555; width: 50px; height: 300px; top: 50px; left: -33px; }
+
+.mod_axle #up3  span{top: 30px }
+.mod_axle #down3  span{top: 100px}
+.mod_axle #left3  span{left: 30px;top: 30px }
+.mod_axle #right3  span{right: 30px;top: 30px }
+
+.mod_axle #up4{background:url(mast.png) -169px 0 no-repeat; height: 102px; width: 83px; right: 413px;bottom: 271px; }
+.mod_axle #down4{background:url(mast.png) -252px 0 no-repeat; height: 102px; width: 83px; right: 329px;bottom: 167px; }
+.mod_axle #right4{background:url(mast.png) -274px -106px no-repeat; height:83px ; width: 102px; right: 310px;bottom: 269px;}
+.mod_axle #left4{background:url(mast.png) -169px -106px no-repeat; height:83px ; width: 102px; right: 414px;bottom: 186px; }
+#li3 .mod_axle .interact div.end{
+	height: 0; width: 0; overflow: hidden;
+}
+
+/*** 弹出窗口 *****/
+#li4 .btn{
+	display: block;
+	margin:0 auto;
+} 
+
+/** tab ***/
+.mod_tab .layer{
+	display: -webkit-box;
+	-webkit-box-orient: horizontal;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	position: absolute;
+	width: 595px;
+	height: 416px;
+	opacity: 1;
+	-webkit-transition: opacity 2s;
+	top: 207px;
+	left: 214px;
+	border: 2px solid #BACE7F;
+	border-top: 0;
+	background: #F6F8EC;
+}
+.mod_tab a {
+	border: 2px solid #BACE7F;
+	border-bottom: 0;
+	box-shadow: none;
+	background: #F6F8EC;
+	top: 171px;
+	font-size: 22px;
+	display: block;
+	position: absolute;
+} 
+.mod_tab  .tab1_unit1 a {
+	z-index: 999;
+	border-radius: 5px 2px 0 0;
+	left: 214px;
+	width: 301px;
+	border-right: 2px #BACE7F solid;
+	}
+.mod_tab  .tab1_unit2 a {
+	z-index: 999;
+	border-radius: 0px 5px 0 0;
+	width: 291px;
+	left: 518px;
+	border-left: 2px #BACE7F solid;
+}
+.mod_tab a.end {
+	background: #EAEAEA;
+	box-shadow: none;
+	z-index: 333;
+	border: 2px solid #BACE7F;
+}
+.mod_tab .layer.end {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+}
+/*** 动画 ***/
+@-webkit-keyframes up1 {0%{height:0px; top:268px;} 100%,25%,50%,75%{height:250px; top:18px;}} 
+@-webkit-keyframes up2 {0%,25%{height:0px;} 100%,50%,75%{height:102px;}} 
+@-webkit-keyframes down1 {0%{height:0px; background-position:-85px -250px;} 100%,25%,50%,75%{height:250px; background-position:-85px 0px;}} 
+@-webkit-keyframes down2 {0%,25%{height:0px; bottom:269px; background-position:-252px -102px;} 100%,50%,75%{height:102px; bottom:167px; background-position:-252px 0px;}} 
+@-webkit-keyframes right1 {0%,25%,50%{width:0px; background-position:-250px -250px;} 100%,75%{width:250px;}} 
+@-webkit-keyframes right2 {0%,25%,50%,75%{width:0px; right:412px; background-position:-376px -106px;} 100%{width:102px; right:310px; background-position:-274px -106px;}} 
+@-webkit-keyframes left1 {0%,25%,50%{width:0px; left:409px;} 100%,75%{width:250px; left:159px; background-position:0px -334px;}} 
+@-webkit-keyframes left2 {0%,25%,50%,75%{width:0px;} 100%{width:102px;}} 
+
+
+@-webkit-keyframes up3 {0%{height:0px; top:268px;} 100%,25%,50%,75%{height:250px; top:18px;}} 
+@-webkit-keyframes up4 {0%,25%{height:0px;} 100%,50%,75%{height:102px;}} 
+@-webkit-keyframes down3 {0%{height:0px; background-position:-85px -250px;} 100%,25%,50%,75%{height:250px; background-position:-85px 0px;}} 
+@-webkit-keyframes down4 {0%,25%{height:0px; bottom:269px; background-position:-252px -102px;} 100%,50%,75%{height:102px; bottom:167px; background-position:-252px 0px;}} 
+@-webkit-keyframes right3 {0%,25%,50%{width:0px; background-position:-250px -250px;} 100%,75%{width:250px;}} 
+@-webkit-keyframes right4 {0%,25%,50%,75%{width:0px; right:412px; background-position:-376px -106px;} 100%{width:102px; right:310px; background-position:-274px -106px;}} 
+@-webkit-keyframes left3 {0%,25%,50%{width:0px; left:409px;} 100%,75%{width:250px; left:159px; background-position:0px -334px;}} 
+@-webkit-keyframes left4 {0%,25%,50%,75%{width:0px;} 100%{width:102px;}} 
+

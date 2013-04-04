@@ -1,0 +1,88 @@
+@charset "UTF-8";
+/** reset.css **/
+*{margin:0;padding:0}
+body{text-align:center;height:100%;font-size:12px;line-height:1.5em;font-family:"Hiragino Sans GB","Microsoft YaHei",Simsun,Mingliu,Arial,Helvetica;color:#555;-webkit-text-stroke:1px transparent}
+img{border:none}
+ins a{font-weight:bold}
+.num{font-family:Verdana,Helvetica;font-size:80%}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+ul,li{list-style-type:none}
+input,button{vertical-align:middle;background:#F5F5F5;border-color:#DEDEDE #bb#bbB #BFBFBF #DEDEDE;border-style:solid;border-width:1px;color:#333333;display:inline-block;font-weight:bold;line-height:130%;margin:0 0.7em 0 0;padding:0.5em 1em 0.6em;text-decoration:none;font-family:"Microsoft YaHei","微软雅黑",Simsun,Mingliu,Arial,Helvetica;font-weight:bold}
+.num{font-family:Verdana,Helvetica;font-size:80%}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+ul,li{list-style-type:none}
+input,button{vertical-align:middle;background:#F5F5F5;border-color:#DEDEDE #bb#bbB #BFBFBF #DEDEDE;border-style:solid;border-width:1px;color:#333333;display:inline-block;font-weight:bold;line-height:130%;margin:0 0.7em 0 0;padding:0.5em 1em 0.6em;text-decoration:none;font-family:"Microsoft YaHei","微软雅黑",Simsun,Mingliu,Arial,Helvetica}
+/** global.css **/
+body{margin:0;padding:0;height:748px;width:1024px;}
+.wrap{height:748px;width:1024px;overflow:hidden;position:relative; background:url(bg.jpg) repeat;}
+ul.keynote{height:748px;margin:0;padding:0;width:99999px;list-style:none;}
+ul.keynote>li{position:relative;height:748px;width:1024px;margin:0;padding:0;float:left;list-style:none;box-shadow:0 0 2px 2px rgba(0,0,0,0.2);}
+ul.keynote>li:last-child{box-shadow:10px 0px 10px 0px rgba(0,0,0,0.2);border-right:1px solid rgba(0,0,0,0.5);width:1023px;}
+ul.keynote>li:first-child{box-shadow:-10px 0px 10px 0px rgba(0,0,0,0.2);border-left:1px solid rgba(0,0,0,0.5);width:1023px;}
+ul.keynote>li .main{ width: 100%; height:-webkit-calc(100% - 105px); position: relative; }
+
+ul.multilevel{ height:99999px; width: 1024px;  -webkit-transition:margin 1s ease;}
+ul.multilevel>li{ height: 748px; width: 1024px; }
+.mod_tab a,.btn{z-index:2;color:white;border:none;font-size:14px;text-align:center;color:#666;text-decoration:none;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;height:35px;line-height:35px;width:120px;box-shadow:0px 0px 0 rgb(207,207,207),1px 1px 0 rgb(181,181,181),2px 2px 0 rgb(154,154,154),3px 3px 0 rgb(127,127,127),4px 4px 3px rgba(0,0,0,0.35),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);}
+.btn:active{color:#666;box-shadow:0px 0px 0 rgb(199,199,199),-1px -1px 0 rgb(163,163,163),-2px -2px 0 rgb(128,128,128),-3px -3px 2px rgba(0,0,0,0.35),-3px -3px 1px rgba(0,0,0,0.5),0px 0px 2px rgba(0,0,0,.2);}
+.btn:hover{background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ddd),color-stop(100%,#eee))}
+/**.btn:active{color:#666;box-shadow:0px 0px 0 rgb(199,199,199),-1px -1px 0 rgb(163,163,163),-2px -2px 0 rgb(128,128,128),-3px -3px 2px rgba(0,0,0,0.35),-3px -3px 1px rgba(0,0,0,0.5),0px 0px 2px rgba(0,0,0,.2);}
+.btn:hover{background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#ddd),color-stop(100%,#eee))}
+**/
+/** 弹窗 **/
+.window{display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-pack:center;-webkit-box-align:center;display:-moz-box;-moz-box-orient:horizontal;-moz-box-pack:center;-moz-box-align:center;display:-o-box;-o-box-orient:horizontal;-o-box-pack:center;-o-box-align:center;display:-ms-box;-ms-box-orient:horizontal;-ms-box-pack:center;-ms-box-align:center;display:box;box-orient:horizontal;box-pack:center;box-align:center;height:748px;width:1024px;position:absolute;top:0;left:0;bottom:0;right:0;background:rgba(0,0,0,0.6);opacity:0;-webkit-transition:opacity .3s ease-out;visibility:hidden;z-index:9999999}
+.window .box{background:#fff;padding:20px;border:5px solid #666;position:relative;}
+.window .box .main{max-height:600px;max-width:900px;}
+.window .box .close{position:absolute;top:-20px;right:-20px;height:33px;width:33px;display:block;background:url(close.png) no-repeat;}
+/** 动画 **/
+.auto_active,.active{-webkit-animation-duration:5s;-webkit-animation-iteration-count:1;-webkit-animation-delay:0;-webkit-animation-timing-function:linear;overflow:hidden;position:absolute;}
+.btn_win{position:absolute;}
+/** 柱状图 **/
+.mod_axle .text{position:relative;}
+.mod_axle .up,.mod_axle .down,.mod_axle .right,.mod_axle .left,.mod_axle .text span{position:absolute;background-position:0 0;}
+.active{background-position:0;}
+.btn_layer{position:relative;display:block;overflow:hidden;}
+.mod_tab a.end{background:#EAEAEA;box-shadow:none;z-index:333;border:2px solid #BACE7F;}
+.end,.mod_tab .layer.end,.mod_axle .mod_layer div.end{display:none;visibility:hidden;opacity:0;}
+.mod_tab a.end{background:#EAEAEA;box-shadow:none;z-index:333;border:2px solid #BACE7F;opacity:1;display:block;visibility:visible;}
+/** 导航栏 **/
+nav.display{margin-right:-130px;}
+nav{position:absolute;top:0px;right:0;width:130px;background:rgba(255,255,255,0.5);-webkit-transition:margin .5s; }
+nav .cont{position:relative;padding-top:10px;padding-left:5px; }
+nav #open{position:absolute; left:-61px;top:0px; background:rgba(255,255,255,0.5); padding:5px 2px 5px 5px;}
+nav #open em{ display: block; width:54px; height:35px; background:url(open.png) no-repeat;}
+nav .cont ul{overflow: scroll; height:500px; }
+nav .cont ul li{height:80px;width:110px; background:rgba(255,255,255,0.1);margin:5px 5px;}
+nav .cont ul img{height:80px;width:110px;}
+nav .cont ul a{opacity:0.5;}
+nav .cont ul a.choise{opacity:1;}
+nav .cont ul a:hover{opacity:1;}
+
+
+map{position:absolute;bottom:10px;right:10px;z-index:555;overflow:hidden;-webkit-transition:margin .5s;}
+map .cont{position:relative;padding:10px;}
+map .cont ul li{ float: left;}
+map .cont ul:after{
+	display: block;
+	content: '.';
+	clear: both;
+	overflow: hidden;
+	height: 0;
+	visibility: hidden;
+	display: none;
+}
+map .cont ul a {height:9px;width:30px; margin:2px 3px;  display: block; background: #eee; height:9px;box-shadow: inset 1px 1px 3px rgba(0,0,0,.8),1px 1px 1px 0px rgba(255,255,255,1); border-radius: 3px;}
+map .cont ul li a.choise{opacity:1;  background:#3b661c;}
+map .cont ul li ul li{
+	clear: both; 
+}
+
+.quilt{
+	position: absolute; z-index: 666;
+	top: 0;
+	left: 0; right: 0; bottom: 0; width: 100%; height: 100%;}
+
+.text{position:absolute;}
+
+
+

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>slide</title>
+		<meta name="author" content="Winda Tang" />
+		<script type="text/javascript" src="screen/constant.js"></script>
+		<script type="text/javascript" src="screen/slide.js"></script>
+		<link rel="stylesheet" type="text/css" href="screen/global.css">
+		<link rel="stylesheet" type="text/css" href="page/detail.css">
+	</head>
+	<style id="style" type="text/css">
+	body{width: 100%; background-color:#bababa; background-image: url(page/bgg.png); background-repeat: repeat;}
+	.index_cont{background:url(page/bggg.jpg) 50% 80px no-repeat; width: 100%; max-width: 1640px; height: 1200px;min-width:1280px; margin:0 auto; }
+	.wrap{margin:0 auto; box-shadow:0px 0px 2px rgba(0,0,0,0.6), 0px 0px 10px rgba(0,0,0,0.8),0px 0px 30px rgba(0,0,0,0.8),0px 0px 50px rgba(0,0,0,0.8),0px 0px 60px rgba(0,0,0,0.8);position: relative;}
+	header{ height: 171px; width:100%;min-width:1280px; max-width: 1640px; background: url(page/hd.png) repeat-x;}
+	header .cont{height: 85px; width: 100%;/*background:  -webkit-radial-gradient(30% 70%, circle closest-corner, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 99%,rgba(0,0,0,0.3) 100%);  Chrome10+,Safari5.1+ */}
+	header:after{
+		display: block; width:100%; max-width: 1680px;background:url(page/hd_bo.png) 50% 0px no-repeat; height: 27px; content:'';
+	}
+	.keynote_li1  ol { display: block; margin:0; padding: 0; padding:100px 150px;}
+	.keynote_li1  ol li{ list-style-type:square; text-align: left; font-size: 34px; line-height: 80px; text-shadow:2px 2px 3px rgba(255,255,255,1) }
+	#li1 p { position: absolute; bottom: 10px; right:10px; font-size: 16px; text-shadow:2px 2px 2px rgba(255,255,255,1) }
+	</style>
+	
+	<body>
+	 	<div class="index_cont">
+	 		<header>
+	 			<div class="cont"></div>
+	 		</header>
+		<div class="wrap">
+		<!--默认样式-->
+			<ul id="keynote" class="keynote">
+				<li class="keynote_li keynote_li1" id="li1">
+					<h2>可以用iPad播放的PPT</h2>
+					<div class="main">
+						<ol>
+							<li>PowerPoint on line</li>
+							<li>pc?android?ipad OK</li>
+							<li>No Internet 为什么不可以?</li>
+						</ol>
+						<p>Build By Winda</p>
+					</div>
+				</li>
+				<li class="keynote_li keynote_li2 mul" id="li7">
+					<ul class="multilevel" id="multilevel7">
+						<li class="multilevel_li multilevel_li1">
+							<h2>上下两级</h2>
+						</li>
+						<li class="multilevel_li multilevel_li2">
+							<h2>tab</h2>
+							<div class="main mod_tab" id="tab1">
+								<div id="tab1_unit1" class="lay tab1_unit1">
+									<div class="layer">
+										tab1 内容
+									</div>
+									<a href="javascript:void" title="" class="">tab1</a>
+								</div>
+								<div id="tab1_unit2" class="lay tab1_unit2">
+									<div class="layer end">
+										tab2 内容
+									</div>
+									<a class=" end" href="javascript:void" title="">tab2</a>
+								</div>
+							</div>
+						</li>
+						<li class="multilevel_li multilevel_li3">
+							<h2>二级页面3</h2>
+						</li>
+					</ul>
+				</li>
+				<li class="keynote_li keynote_li2 mul" id="li8">
+					<ul class="multilevel" id="multilevel8">
+						<li class="multilevel_li multilevel_li1">
+							<h2>上下两级</h2>
+						</li>
+						<li class="multilevel_li multilevel_li2">
+							<h2>二级页面2</h2>
+						</li>
+						<li class="multilevel_li multilevel_li3">
+							<h2>二级页面3</h2>
+						</li>
+					</ul>
+				</li>
+				<li class="keynote_li keynote_li2" id="li2">
+					<h2>柱状图(自动)</h2>
+					<div class="main mod_axle">
+						<div class="up auto_active" id="up1"><div class="text"><span></span></div></div>
+						<div class="down auto_active" id="down1"><div class="text"><span></span></div></div>
+						<div class="left auto_active" id="left1"><div class="text"><span></span></div></div>
+						<div class="right auto_active" id="right1"><div class="text"><span></span></div></div>
+						<div class="up auto_active" id="up2"></div>
+						<div class="down auto_active" id="down2"></div>
+						<div class="left auto_active" id="left2"></div>
+						<div class="right auto_active" id="right2"></div>
+					</div>
+				</li>
+				<li class="keynote_li keynote_li2" id="li3">
+					<h2>柱状图(按钮)</h2>
+					<div class="main">
+					  	<div class="mod_axle interact" id="interact1"> 
+							<div class="up layer end" id="up3"><div class="text"><span></span></div></div>
+							<div class="down layer end" id="down3"><div class="text"><span></span></div></div>
+							<div class="left layer end" id="left3"><div class="text"><span></span></div></div>
+							<div class="right layer end" id="right3"><div class="text"><span></span></div></div>
+							<a href="javascript:void" class="btn layer" id="btn_interact">开始动画</a>
+				    	</div>
+				    	<div class="mod_axle interact" id="interact2"> 
+							<div class="up layer end" id="up4"></div>
+							<div class="down layer end" id="down4"></div>
+							<div class="left layer end" id="left4"></div>
+							<div class="right layer end" id="right4"></div>
+							<a href="javascript:void" class="btn layer" id="btn_interact2" style="right:0">开始动画</a>
+				    	</div>
+					</div>
+				</li>
+				<li class="keynote_li keynote_li2" id="li4">
+					<h2>弹出窗口</h2>
+					<div class="main">
+							<a href="javascript:void" class="btn btn_win" id="btn_win1" style="right:500px">弹出窗口</a>
+					 <div>
+					</div>
+				</li>
+			</ul>
+		<nav id="nav" class="nav display">
+			<div class="cont">
+				<ul id="nav_ul">
+					<li class="liseq1"><a href="javascript:void"><img src="page/1.png"/></a></li>
+					<li class="liseq2"><a href="javascript:void"><img src="page/2.png"/></a></li>
+					<li class="liseq3"><a href="javascript:void"><img src="page/3.png"/></a></li>
+					<li class="liseq4"><a href="javascript:void"><img src="page/4.png"/></a></li>
+					<li class="liseq5"><a href="javascript:void"><img src="page/5.png"/></a></li>
+					<li class="liseq6"><a href="javascript:void"><img src="page/6.png"/></a></li>
+				</ul>
+				<a href="javascript:void" id="open" class="open"><em></em></a>
+			</div>
+		</nav>
+		<map id="map" class="nav">
+			<div class="cont">
+				<ul id="map_ul">
+					<li class="liseq1"><a href="javascript:void"></a></li>
+					<li class="liseq2"><a href="javascript:void"></a>
+						<ul class="secondary">
+							<li class="liseq1"><a href="javascript:void"></a></li>
+							<li class="liseq2"><a href="javascript:void"></a></li>
+						</ul>
+					</li>
+					<li class="liseq3"><a href="javascript:void"></a>
+						<ul class="secondary">
+							<li class="liseq1"><a href="javascript:void"></a></li>
+							<li class="liseq2"><a href="javascript:void"></a></li>
+						</ul>
+					</li>
+					<li class="liseq4"><a href="javascript:void"></a></li>
+					<li class="liseq5"><a href="javascript:void"></a></li>
+					<li class="liseq6"><a href="javascript:void"></a></li>
+				</ul>
+			</div>
+			<div class = "quilt"></div>
+		</map>
+		<!-- 弹出窗口 -->
+
+		<div id="win1" class="window" style=""> 
+		  <div class="box">
+		    <div class="m_close"><a class="close"></a></div>
+		    <div class="cont">
+		      <div style="height:500px; width:500px">华丽丽的弹出窗口</a>
+		    </div>
+		  </div>
+		</div>
+		</div>
+		
+	</div>
+		<script type="text/javascript">
+		    var navList =[]; 
+			var key = keynote.init({
+				ul:'keynote',
+				liClass : 'keynote_li',
+				callBack : function(param) {
+					calldo(param);
+
+					/*** 导航切换 *****/
+					if(navList[0] == null){
+					    navList[0] = {ul:'nav'};
+						navList[0] =  keynote.nav.init(param,navList,0)
+					}
+					navList[0].currentLi = param.currentLi;
+					keynote.nav.keyLiHover(param,navList[0]);
+
+					/*** 导航切换 *****/
+					if(navList[1] == null){
+					    navList[1] = {ul:'map'};
+						navList[1]  =  keynote.nav.init(param,navList,1);
+					}
+					navList[1].currentLi = param.currentLi;
+					keynote.nav.keyLiHover(param,navList[1]);
+			
+
+					var wrapParam =param;
+
+					var alist = param.li[param.currentLi].id.replace('li','');  
+					alist = document.getElementById('multilevel'+ alist);
+					//console.log(alist);
+					if(alist){
+						var multilevel =  keynote.init({
+							ul:alist.id,
+							liClass : 'multilevel_li',
+							multilevel: 1,
+							elevator: 0,
+							liheight: 748,
+							callBack : function(param) {
+								calldo(param);
+								var wrapUl = navList[1].li[wrapParam.currentLi];
+								var a =wrapUl.getElementsByTagName('a')
+								for (var i = a.length - 1; i >= 0; i--) {
+									a[i].className  =  a[i].className.replace(' choise','');
+								};
+								wrapUl.getElementsByTagName('a')[param.currentLi].className += ' choise';
+							}
+						})
+					}
+					// var multilevel =  keynote.init({
+					// 	ul:'multilevel1',
+					// 	liClass : 'multilevel1_li',
+					// 	multilevel: 1,
+					// 	elevator: 0,
+					// 	liheight: 748,
+					// 	callBack : function(param) {
+					// 		calldo(param);
+					// 		var wrapUl = navList[1].li[wrapParam.currentLi];
+					// 		var a =wrapUl.getElementsByTagName('a')
+					// 		for (var i = a.length - 1; i >= 0; i--) {
+					// 			a[i].className  =  a[i].className.replace(' choise','');
+					// 		};
+					// 		wrapUl.getElementsByTagName('a')[param.currentLi].className += ' choise';
+					// 	}
+					// })
+			    }
+			});
+		function calldo(param){
+				//内存释放
+				var alist = param.li[param.preLi].getElementsByClassName('btn_win');
+				for (var i = 0; i < alist.length; i++) {
+					constant.removeEventListen(alist[i],onBtn_win);
+				}
+
+				var alist = param.li[param.preLi].getElementsByClassName('mod_tab');
+				for (var i = 0; i < alist.length; i++) {
+					var divlist = alist[i].getElementsByClassName('layer');
+					var btn =  alist[i].getElementsByTagName('a');
+					constant.removeChange(divlist,btn,onMod_tab);
+				}
+
+				// 切换页面后还原前一页动画
+				keynote.prerefersh(param);
+				/********   柱状图(自动) *************/
+				// 自动运行的动画请加上class 与第一个参数名称相同class 名称
+				keynote.addActive('auto_active', param);
+				/********   柱状图(按钮) *************/
+				// 给按钮加方法 执行动画
+				var alist = param.li[param.currentLi].getElementsByClassName('interact');
+				for (var i = 0; i < alist.length; i++) {
+					var btn = alist[i].getElementsByTagName('a')[0];
+					constant.addEventListen(btn, onInteract);
+				}
+				function onInteract() {
+					var ele = this.parentElement.getElementsByClassName('layer')
+					for (var j = 0; j < ele.length; j++) {
+						ele[j].className = ele[j].className.replace(' end', ' active');
+						keynote.addActive('active', param);
+					};
+					constant.removeEventListen(btn, onInteract);
+				}
+
+
+				/********   弹出窗口 ********/
+				var alist = param.li[param.currentLi].getElementsByClassName('btn_win');
+				for (var i = 0; i < alist.length; i++) {
+					constant.addEventListen(alist[i],onBtn_win)
+				}
+				function onBtn_win() {
+					var num = this.id.replace('btn_win', '');
+					constant.win('win' + num);
+				}
+
+
+				/****** tab *********/
+				var alist = param.li[param.currentLi].getElementsByClassName('mod_tab');
+				for (var i = 0; i < alist.length; i++) {
+					var divlist = alist[i].getElementsByClassName('layer');
+					var btn =  alist[i].getElementsByTagName('a');
+					constant.change(divlist,btn,onMod_tab);
+				}
+				function onMod_tab(){
+					for (var j = 0; j < divlist.length; j++) {
+						if(divlist[j].className.indexOf('end')<0)
+							divlist[j].className += ' end';
+						if(alist[j].className.indexOf('end')<0)
+							alist[j].className += ' end';
+					}
+					var ele = this.parentElement.getElementsByClassName('layer')[0];
+					ele.className  = ele.className.replace(/\s*(end)/,'');
+					this.className = this.className.replace(/\s*(end)/,'');
+				}
+				// var divlist = document.getElementById('tab1').getElementsByClassName('layer');
+				// 	alist = document.getElementById('tab1').getElementsByTagName('a');
+				// 	constant.change(divlist,alist);
+		}
+			
+					
+		</script>
+		<!-- 删除  控制台生产 动画  css >
+		<script type="text/javascript" src="amination_step.js"></script -->
+		<!--script type="text/javascript">
+			var str = $columnar.direction(0,'up1',1,4);
+			str +='\n'+$columnar.direction(0,'up2',2,4);
+			str +='\n'+$columnar.direction(1,'down1',1,4);
+			str +='\n'+$columnar.direction(1,'down2',2,4);
+			str +='\n'+$columnar.direction(3,'right1',3,4);
+			str +='\n'+$columnar.direction(3,'right2',4,4);
+			str +='\n'+$columnar.direction(2,'left1',3,4);
+			str +='\n'+$columnar.direction(2,'left2',4,4);
+
+			str +='\n'+$columnar.direction(0,'up3',1,4);
+			str +='\n'+$columnar.direction(0,'up4',2,4);
+			str +='\n'+$columnar.direction(1,'down3',1,4);
+			str +='\n'+$columnar.direction(1,'down4',2,4);
+			str +='\n'+$columnar.direction(3,'right3',3,4);
+			str +='\n'+$columnar.direction(3,'right4',4,4);
+			str +='\n'+$columnar.direction(2,'left3',3,4);
+			str +='\n'+$columnar.direction(2,'left4',4,4);
+			var style = document.getElementById('style');
+			style.innerHTML = str;
+		</script-->
+	</body>
+</html>
