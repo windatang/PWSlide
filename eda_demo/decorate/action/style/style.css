@@ -1,0 +1,151 @@
+.ppt-page-3 {
+  position: relative;
+  width: 724px;
+  height: 506px;
+  margin: 0 auto;
+  background: url(../images/bg-3.png) no-repeat;
+}
+.num-left {
+  position: absolute;
+  top: 194px;
+  left: 57px;
+  width: 207px;
+  height: 107px;
+  background: url(../images/num-lt-1.8.png) no-repeat;
+}
+.num-right {
+  position: absolute;
+  top: 198px;
+  right: 0;
+  width: 317px;
+  height: 105px;
+  background: url(../images/num-gte-50.png) no-repeat;
+}
+.and-or {
+  position: absolute;
+  top: 238px;
+  left: 291px;
+  width: 105px;
+  height: 103px;
+  background: url(../images/and-or.png) no-repeat;
+  z-index: 1;
+  opacity: 0;
+}
+
+.ppt-page-3 > .mask {
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+}
+.subtitle-mask {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+.left-num-mask {
+  top: 100px;
+  left: 0;
+  width: 346px;
+  height: 253px;
+}
+.right-num-mask {
+  top: 100px;
+  right: 0;
+  width: 378px;
+  height: 253px;
+}
+.text-mask {
+  top: 353px;
+  left: 0;
+  width: 100%;
+  height: 156px;
+}
+
+
+.ppt-page-8 {
+  position: relative;
+  width: 782px;
+  height: 487px;
+  margin: 0 auto;
+  background: url(../images/bg-8.png) no-repeat;
+}
+.br-btn {
+  position: absolute;
+  right: -70px;
+  bottom: -50px;
+  width: 242px;
+  height: 81px;
+  background: url(../images/btn.png) no-repeat;
+  cursor: pointer;
+}
+.triggers {
+  position: absolute;
+  right: 0;
+  top: 104px;
+  width: 93px;
+}
+.triggers > a {
+  display: block;
+  width: 93px;
+  height: 44px;
+  margin-bottom: 3px;
+  cursor: pointer;
+}
+.red-line {
+  position: absolute;
+  left: 90px;
+  top: 164px;
+  /*width: 537px;*/
+  width: 0;
+  height: 4px;
+  background: url(images/red-line.png) no-repeat;
+}
+.x-mask, .y-mask, .z-mask {
+  position: absolute;
+  top: 113px;
+  left: 120px;
+  width: 514px;
+  height: 262px;
+  opacity: 0;
+}
+.x-mask { background: url(../images/x-mask.png) no-repeat; }
+.y-mask { background: url(../images/y-mask.png) no-repeat; }
+.z-mask { background: url(../images/z-mask.png) no-repeat; }
+.line1-mask {
+  position: absolute;
+  left: 123px;
+  top: 200px;
+  width: 117px;
+  height: 15px;
+}
+.line2-mask {
+  position: absolute;
+  left: 121px;
+  top: 213px;
+  width: 409px;
+  height: 53px;
+}
+.line3-mask {
+  position: absolute;
+  left: 128px;
+  top: 297px;
+  width: 408px;
+  height: 27px;
+}
+.line1-mask i,
+.line2-mask i,
+.line3-mask i {
+  display: block;
+  width: 0;
+  height: 100%;
+}
+.line1-mask i {
+  background: url(images/line-1.png) no-repeat left center;
+}
+.line2-mask i {
+  background: url(images/line-2.png) no-repeat left center;
+}
+.line3-mask i {
+  background: url(images/line-3.png) no-repeat left center;
+}

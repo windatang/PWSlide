@@ -19,8 +19,12 @@
 		display: block; width:100%; max-width: 1680px;background:url(page/hd_bo.png) 50% 0px no-repeat; height: 27px; content:'';
 	}
 	.keynote_li1  ol { display: block; margin:0; padding: 0; padding:100px 150px;}
+    .keynote_li2 .multilevel_li1 .main { display: block; margin:0; padding: 0; padding-top:100px; font-size: 34px; line-height: 80px; text-shadow:2px 2px 3px rgba(255,255,255,1)}
 	.keynote_li1  ol li{ list-style-type:square; text-align: left; font-size: 34px; line-height: 80px; text-shadow:2px 2px 3px rgba(255,255,255,1) }
 	#li1 p { position: absolute; bottom: 10px; right:10px; font-size: 16px; text-shadow:2px 2px 2px rgba(255,255,255,1) }
+    .btn {background: #0091d4;}
+    .btn:hover,.btn:active{background: #0a77d5;}
+    #li4 .btn{ margin-top: 100px;}
 	</style>
 	
 	<body>
@@ -32,12 +36,11 @@
 		<!--默认样式-->
 			<ul id="keynote" class="keynote">
 				<li class="keynote_li keynote_li1" id="li1">
-					<h2>可以用iPad播放的PPT</h2>
+					<h2>Online powerPoint 在线PPT</h2>
 					<div class="main">
 						<ol>
 							<li>PowerPoint on line</li>
-							<li>pc?android?ipad OK</li>
-							<li>No Internet 为什么不可以?</li>
+							<li>Uising pc? android? ipad？it‘s OK</li>
 						</ol>
 						<p>Build By Winda</p>
 					</div>
@@ -45,34 +48,37 @@
 				<li class="keynote_li keynote_li2 mul" id="li7">
 					<ul class="multilevel" id="multilevel7">
 						<li class="multilevel_li multilevel_li1">
-							<h2>上下两级</h2>
+							<h2>Moving up and down</h2>
+                            <div class="main">
+                                Add some chapters. Slide down please!
+                            </div>
 						</li>
 						<li class="multilevel_li multilevel_li2">
-							<h2>tab</h2>
-							<div class="main mod_tab" id="tab1">
-								<div id="tab1_unit1" class="lay tab1_unit1">
-									<div class="layer">
-										tab1 内容
-									</div>
-									<a href="javascript:void" title="" class="">tab1</a>
-								</div>
-								<div id="tab1_unit2" class="lay tab1_unit2">
-									<div class="layer end">
-										tab2 内容
-									</div>
-									<a class=" end" href="javascript:void" title="">tab2</a>
-								</div>
-							</div>
+                            <h2>Chapter 2</h2>
 						</li>
 						<li class="multilevel_li multilevel_li3">
-							<h2>二级页面3</h2>
+							<h2>Chapter 3</h2>
 						</li>
 					</ul>
 				</li>
 				<li class="keynote_li keynote_li2 mul" id="li8">
 					<ul class="multilevel" id="multilevel8">
 						<li class="multilevel_li multilevel_li1">
-							<h2>上下两级</h2>
+                            <h2>tab</h2>
+                            <div class="main mod_tab" id="tab1">
+                                <div id="tab1_unit1" class="lay tab1_unit1">
+                                    <div class="layer">
+                                        tab1
+                                    </div>
+                                    <a href="javascript:void(0);" title="" class="">tab1</a>
+                                </div>
+                                <div id="tab1_unit2" class="lay tab1_unit2">
+                                    <div class="layer end">
+                                        tab2
+                                    </div>
+                                    <a class=" end" href="javascript:void(0);" title="">tab2</a>
+                                </div>
+                            </div>
 						</li>
 						<li class="multilevel_li multilevel_li2">
 							<h2>二级页面2</h2>
@@ -83,7 +89,7 @@
 					</ul>
 				</li>
 				<li class="keynote_li keynote_li2" id="li2">
-					<h2>柱状图(自动)</h2>
+					<h2>Bar Chart(Auto), 柱状图(自动)</h2>
 					<div class="main mod_axle">
 						<div class="up auto_active" id="up1"><div class="text"><span></span></div></div>
 						<div class="down auto_active" id="down1"><div class="text"><span></span></div></div>
@@ -96,28 +102,28 @@
 					</div>
 				</li>
 				<li class="keynote_li keynote_li2" id="li3">
-					<h2>柱状图(按钮)</h2>
+					<h2>Bar Chart(control), 柱状图(控制)</h2>
 					<div class="main">
 					  	<div class="mod_axle interact" id="interact1"> 
 							<div class="up layer end" id="up3"><div class="text"><span></span></div></div>
 							<div class="down layer end" id="down3"><div class="text"><span></span></div></div>
 							<div class="left layer end" id="left3"><div class="text"><span></span></div></div>
 							<div class="right layer end" id="right3"><div class="text"><span></span></div></div>
-							<a href="javascript:void" class="btn layer" id="btn_interact">开始动画</a>
+							<a href="javascript:void(0);" class="btn layer" id="btn_interact">BEGIN</a>
 				    	</div>
 				    	<div class="mod_axle interact" id="interact2"> 
 							<div class="up layer end" id="up4"></div>
 							<div class="down layer end" id="down4"></div>
 							<div class="left layer end" id="left4"></div>
 							<div class="right layer end" id="right4"></div>
-							<a href="javascript:void" class="btn layer" id="btn_interact2" style="right:0">开始动画</a>
+							<a href="javascript:void(0);" class="btn layer" id="btn_interact2" style="right:0">BEGIN</a>
 				    	</div>
 					</div>
 				</li>
 				<li class="keynote_li keynote_li2" id="li4">
-					<h2>弹出窗口</h2>
+					<h2>pop-up window(弹出窗口)</h2>
 					<div class="main">
-							<a href="javascript:void" class="btn btn_win" id="btn_win1" style="right:500px">弹出窗口</a>
+							<a href="javascript:void(0);" class="btn btn_win" id="btn_win1" style="right:500px">POP-UP WINDOW</a>
 					 <div>
 					</div>
 				</li>
@@ -125,35 +131,35 @@
 		<nav id="nav" class="nav display">
 			<div class="cont">
 				<ul id="nav_ul">
-					<li class="liseq1"><a href="javascript:void"><img src="page/1.png"/></a></li>
-					<li class="liseq2"><a href="javascript:void"><img src="page/2.png"/></a></li>
-					<li class="liseq3"><a href="javascript:void"><img src="page/3.png"/></a></li>
-					<li class="liseq4"><a href="javascript:void"><img src="page/4.png"/></a></li>
-					<li class="liseq5"><a href="javascript:void"><img src="page/5.png"/></a></li>
-					<li class="liseq6"><a href="javascript:void"><img src="page/6.png"/></a></li>
+					<li class="liseq1"><a href="javascript:void(0);"><img src="page/1.png"/></a></li>
+					<li class="liseq2"><a href="javascript:void(0);"><img src="page/2.png"/></a></li>
+					<li class="liseq3"><a href="javascript:void(0);"><img src="page/3.png"/></a></li>
+					<li class="liseq4"><a href="javascript:void(0);"><img src="page/4.png"/></a></li>
+					<li class="liseq5"><a href="javascript:void(0);"><img src="page/5.png"/></a></li>
+					<li class="liseq6"><a href="javascript:void(0);"><img src="page/6.png"/></a></li>
 				</ul>
-				<a href="javascript:void" id="open" class="open"><em></em></a>
+				<a href="javascript:void(0);" id="open" class="open"><em></em></a>
 			</div>
 		</nav>
 		<map id="map" class="nav">
 			<div class="cont">
 				<ul id="map_ul">
-					<li class="liseq1"><a href="javascript:void"></a></li>
-					<li class="liseq2"><a href="javascript:void"></a>
+					<li class="liseq1"><a href="javascript:void(0);"></a></li>
+					<li class="liseq2"><a href="javascript:void(0);"></a>
 						<ul class="secondary">
-							<li class="liseq1"><a href="javascript:void"></a></li>
-							<li class="liseq2"><a href="javascript:void"></a></li>
+							<li class="liseq1"><a href="javascript:void(0);"></a></li>
+							<li class="liseq2"><a href="javascript:void(0);"></a></li>
 						</ul>
 					</li>
-					<li class="liseq3"><a href="javascript:void"></a>
+					<li class="liseq3"><a href="javascript:void(0);"></a>
 						<ul class="secondary">
-							<li class="liseq1"><a href="javascript:void"></a></li>
-							<li class="liseq2"><a href="javascript:void"></a></li>
+							<li class="liseq1"><a href="javascript:void(0);"></a></li>
+							<li class="liseq2"><a href="javascript:void(0);"></a></li>
 						</ul>
 					</li>
-					<li class="liseq4"><a href="javascript:void"></a></li>
-					<li class="liseq5"><a href="javascript:void"></a></li>
-					<li class="liseq6"><a href="javascript:void"></a></li>
+					<li class="liseq4"><a href="javascript:void(0);"></a></li>
+					<li class="liseq5"><a href="javascript:void(0);"></a></li>
+					<li class="liseq6"><a href="javascript:void(0);"></a></li>
 				</ul>
 			</div>
 			<div class = "quilt"></div>
@@ -295,8 +301,8 @@
 					for (var j = 0; j < divlist.length; j++) {
 						if(divlist[j].className.indexOf('end')<0)
 							divlist[j].className += ' end';
-						if(alist[j].className.indexOf('end')<0)
-							alist[j].className += ' end';
+						//if(alist[j].className.indexOf('end')<0)
+						//	alist[j].className += ' end';
 					}
 					var ele = this.parentElement.getElementsByClassName('layer')[0];
 					ele.className  = ele.className.replace(/\s*(end)/,'');
